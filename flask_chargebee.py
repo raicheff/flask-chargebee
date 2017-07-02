@@ -9,6 +9,7 @@
 import warnings
 
 import chargebee
+
 from flask import Response
 from six.moves.http_client import OK
 
@@ -35,7 +36,7 @@ class Chargebee(object):
         api_key = app.config.get('CHARGEBEE_API_KEY')
         site = app.config.get('CHARGEBEE_SITE')
         if not all((api_key, site)):
-            warnings.warn('Chargebee config not set', RuntimeWarning, stacklevel=2)
+            warnings.warn('CHARGEBEE config not set', RuntimeWarning, stacklevel=2)
             return
 
         chargebee.configure(api_key, site)
